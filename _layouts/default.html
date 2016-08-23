@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ site.title | escape }}</title>
+    <link rel="stylesheet" href="{{ '/css/main.css' | prepend:site.baseurl }}" type="text/css"/>
+    <meta name="viewport" content="width=device-width"/>
+</head>
+<body>
+<header>
+    <h1><a href="{{ '/' | prepend:site.baseurl }}">{{ site.title | escape }} @ {{ site.realm }}</a></h1>
+    <div class="spacer"></div>
+    <nav class="topbar">
+        <ul>
+            <li><a href="http://example.com/">Forums</a></li>
+            <li><a href="http://example.com/">Apply!</a></li>
+            <li><a href="http://example.com/">Contact us!</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="container">
+    <div class="content">
+        {{ content }}
+    </div>
+    <nav class="sidebar">
+        {% if page.sections %}
+        <div class="sections">
+            <ol>
+                {% for section in page.sections %}
+                {% for s in section %}
+                <li><a href="#{{ s[0] }}">{{ s[1] }}</a></li>
+                {% endfor %}
+                {% endfor %}
+            </ol>
+        </div>
+        {% endif %}
+        <div>
+            <h2>Recent news</h2>
+            <ol class="news-list">
+                {% for post in site.posts %}
+                <li>
+                    <div class="news-list-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape
+                        }}</a></div>
+                    <div>{{ post.date | date: "%b %-d, %Y" }}</div>
+                </li>
+                {% endfor %}
+            </ol>
+        </div>
+    </nav>
+</div>
+<script src="{{ '/js/main.js' | prepend:site.baseurl }}" type="text/javascript"></script>
+</body>
+</html>
