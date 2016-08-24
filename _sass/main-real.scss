@@ -18,6 +18,8 @@ $border-color: lightgray;
 $content-width: 700px;
 $sidebar-width: 300px;
 $sidebar-margin: 10px;
+$header-title-width: 350px;
+$header-links-width: 250px;
 
 * {
   box-sizing: border-box;
@@ -32,6 +34,19 @@ body {
   max-width: $content-width + $sidebar-width;
   margin-left: auto;
   margin-right: auto;
+
+  > * {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &:first-child {
+      padding-top: 10px;
+    }
+
+    &:last-child {
+      padding-bottom: 10px;
+    }
+  }
 }
 
 header {
@@ -54,10 +69,12 @@ header {
     display: inline;
     font-size: 150%;
     font-weight: $base-font-weight;
+    min-width: $header-title-width;
   }
 
   .topbar {
     display: inline-block;
+    min-width: $header-links-width;
 
     ul {
       display: block;
@@ -110,10 +127,13 @@ h2 {
   }
 }
 
-@media screen and (min-width: $content-width) {
+@media screen and (min-width: $sidebar-width + $header-title-width + $header-links-width) {
   header {
-    margin-left: $sidebar-width;
     flex-direction: row;
+
+    h1 {
+      flex-shrink: 0;
+    }
 
     .spacer {
       flex-grow: 1;
@@ -121,8 +141,15 @@ h2 {
 
     .topbar {
       align-self: flex-end;
+      text-align: right;
       font-size: 120%;
     }
+  }
+}
+
+@media screen and (min-width: $content-width) {
+  header {
+    margin-left: $sidebar-width;
   }
 
   .container {
