@@ -1,7 +1,16 @@
-{ bundlerEnv, jekyll }:
-bundlerEnv {
-    name = "easily-amused-website";
+{ bundlerEnv, stdenv }:
+let env = bundlerEnv {
+    name = "easily-amused-website-env";
     gemfile = ./Gemfile;
     lockfile = ./Gemfile.lock;
     gemset = ./gemset.nix;
+};
+in stdenv.mkDerivation {
+    name = "easily-amused-website";
+    src = ./.;
+    buildInputs = [ env ];
+    buildCommand =
+        ''
+            jekyll build --source $src --destination $out
+        '';
 }
