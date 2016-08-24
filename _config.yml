@@ -24,6 +24,13 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://amused.ninja" # the base hostname & protocol for your site
 exclude:
   - result
+  - build-and-serve.sh
+  - serve.sh
+  - Gemfile
+  - Gemfile.lock
+  - gemset.nix
+  - default.nix
+  - dev.nix
 timezone: "Europe/Stockholm"
 permalink: "/news/:year/:month/:day/:title.html"
 paginate_path: "/news/page-:num"
