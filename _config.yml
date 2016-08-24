@@ -24,6 +24,10 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://amused.ninja" # the base hostname & protocol for your site
 exclude:
   - result
+timezone: "Europe/Stockholm"
+permalink: "/news/:year/:month/:day/:title.html"
+paginate_path: "/news/page-:num"
+paginate: 10
 
 # Build settings
 markdown: kramdown

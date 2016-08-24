@@ -1,0 +1,30 @@
+---
+layout: page
+---
+
+<div>
+    <h2>Older news</h2>
+
+    {% include pagination.html %}
+
+    <ol class="news-list">
+        {% for post in paginator.posts %}
+        <li>
+            <div>
+                <h3 class="news-list-title">
+                    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+                </h3>
+                <div class="news-list-date">{{ post.date | date: "%Y %b %-d" }}</div>
+                <div>
+                    {{ post.excerpt }}
+                </div>
+                <div>
+                    <a href="{{ post.url | prepend: site.baseurl }}">Read more...</a>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ol>
+
+    {% include pagination.html %}
+</div>

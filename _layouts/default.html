@@ -14,7 +14,7 @@
             <li><a href="mumble://amused.ninja">Mumble</a></li>
             <li><a href="http://example.com/">Forums</a></li>
             <li><a href="http://example.com/">Apply</a></li>
-            <li><a href="http://example.com/">Contact</a></li>
+            <li><a href="{{ '/contact/' | prepend:site.baseurl }}">Contact</a></li>
         </ul>
     </nav>
 </header>
@@ -37,14 +37,16 @@
         <div>
             <h2>Recent news</h2>
             <ol class="news-list">
-                {% for post in site.posts %}
+                {% for post in site.posts limit:2 %}
                 <li>
-                    <div class="news-list-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape
-                        }}</a></div>
-                    <div>{{ post.date | date: "%b %-d, %Y" }}</div>
+                    <div class="news-list-title">
+                        <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+                    </div>
+                    <div class="news-list-date">{{ post.date | date: "%Y %b %-d" }}</div>
                 </li>
                 {% endfor %}
             </ol>
+            <div><a href="{{ '/news/' | prepend:site.baseurl }}">More news</a></div>
         </div>
     </nav>
 </div>

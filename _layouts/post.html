@@ -2,4 +2,10 @@
 layout: default
 ---
 
-{{ content }}
+<div class="post">
+    <div class="post-header">
+    <h2>{{ page.title }}</h2>
+    <p>{{ page.date | date: "%Y %b %-d" }}</p>
+    </div>
+    {{ content }}
+</div>
