@@ -19,7 +19,7 @@ $content-width: 700px;
 $sidebar-width: 300px;
 $sidebar-margin: 10px;
 $header-title-width: 350px;
-$header-links-width: 250px;
+$header-links-width: 300px;
 
 * {
   box-sizing: border-box;
@@ -69,12 +69,10 @@ header {
     display: inline;
     font-size: 150%;
     font-weight: $base-font-weight;
-    min-width: $header-title-width;
   }
 
   .topbar {
     display: inline-block;
-    min-width: $header-links-width;
 
     ul {
       display: block;
@@ -133,6 +131,7 @@ h2 {
 
     h1 {
       flex-shrink: 0;
+      min-width: $header-title-width;
     }
 
     .spacer {
@@ -140,6 +139,7 @@ h2 {
     }
 
     .topbar {
+      min-width: $header-links-width;
       align-self: flex-end;
       text-align: right;
       font-size: 120%;
