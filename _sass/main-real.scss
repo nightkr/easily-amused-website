@@ -127,6 +127,7 @@ h2 {
 
   .container {
     flex-direction: row-reverse;
+    justify-content: flex-end;
 
     .sidebar {
       width: $sidebar-width - $sidebar-margin;
