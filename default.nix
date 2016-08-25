@@ -11,6 +11,6 @@ in stdenv.mkDerivation {
     buildInputs = [ env ];
     buildCommand =
         ''
-            jekyll build --source $src --destination $out
+            bundle exec jekyll build --source $src --destination $out
         '';
 }

@@ -35,6 +35,8 @@ timezone: "Europe/Stockholm"
 permalink: "/news/:year/:month/:day/:title.html"
 paginate_path: "/news/page-:num"
 paginate: 10
+gems:
+  - jekyll-paginate
 
 # Build settings
 markdown: kramdown
