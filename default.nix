@@ -1,4 +1,4 @@
-{ bundlerEnv, stdenv }:
+{ bundlerEnv, stdenv, fetchgitLocal }:
 let env = bundlerEnv {
     name = "easily-amused-website-env";
     gemfile = ./Gemfile;
@@ -7,7 +7,7 @@ let env = bundlerEnv {
 };
 in stdenv.mkDerivation {
     name = "easily-amused-website";
-    src = ./.;
+    src = fetchgitLocal ./.;
     buildInputs = [ env ];
     buildCommand =
         ''
