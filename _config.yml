@@ -31,6 +31,8 @@ exclude:
   - gemset.nix
   - default.nix
   - dev.nix
+  - README.md
+  - vendor
 timezone: "Europe/Stockholm"
 permalink: "/news/:year/:month/:day/:title.html"
 paginate_path: "/news/page-:num"
