@@ -7,7 +7,11 @@ let env = bundlerEnv {
 };
 in stdenv.mkDerivation {
     name = "easily-amused-website";
-    src = fetchgitLocal ./.;
+    src =
+        if builtins.pathExists ./.git then
+            fetchgitLocal ./.
+        else # Not in a git repo, for example it was from a dumped tarball
+            ./.;
     buildInputs = [ env ];
     buildCommand =
         ''
